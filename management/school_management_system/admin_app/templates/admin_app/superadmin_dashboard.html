@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>superadmin</title>
+</head>
+<body>
+    <h1>School Management System</h1>
+    <h2>Admin Dashboard</h2>
+    <ul>
+        <li><a href="{% url 'admin_app:home' %}">Home</a></li>
+        <li><a href="{% url 'admin_app:add_student' %}">Add Student</a></li>
+        <li><a href="{% url 'admin_app:view_students' %}">View Students</a></li>
+        <li><a href="{% url 'admin_app:edit_student' %}">Edit Student</a></li>
+        <li><a href="{% url 'admin_app:delete_student' %}">Delete Student</a></li>
+        <li><a href="{% url 'admin_app:logout' %}">Logout</a></li>
+    </ul>
+    <p>Welcome, {{ user.username }}</p>
+    <p>You are logged in as an admin.
+</body>
+</html>

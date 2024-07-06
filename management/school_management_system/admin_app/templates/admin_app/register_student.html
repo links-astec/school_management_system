@@ -1,0 +1,22 @@
+<!-- admin_app/register_student.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+</head>
+<body>
+    <h2>Student Registration</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ student_form.as_p }}
+        <button type="submit">Register</button>
+        <p>already registered? <a href="{% url 'login' %}"> login here</a></p>
+    </form>
+    <p><a href="{% url 'password_reset' %}">Forgot password?</a></p>
+</body>
+</html>
+

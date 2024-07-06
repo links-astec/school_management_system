@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor</title>
+</head>
+<body>
+    <h2>Tutor Dashboard</h2>
+<h3>My Courses</h3>
+<ul>
+    {% for course in courses %}
+    <li>{{ course.name }}</li>
+    {% endfor %}
+</ul>
+<h3>Students</h3>
+<ul>
+    {% for student in students %}
+    <li>{{ student.user.username }} - <a href="{% url 'update_student_score' student.id course.id %}">Update Score</a></li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

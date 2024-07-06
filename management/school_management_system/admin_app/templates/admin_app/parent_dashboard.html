@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent</title>
+</head>
+<body>
+    <h2>Parent Dashboard</h2>
+<h3>My Children</h3>
+<ul>
+    {% for child in children %}
+    <li>{{ child.user.username }} - <a href="{% url 'view_child_report' child.id %}">View Report</a></li>
+    {% endfor %}
+</ul>
+</body>
+</html>

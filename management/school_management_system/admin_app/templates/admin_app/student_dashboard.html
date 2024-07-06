@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to the Student Dashboard</h1>
+    
+    <h2>Your Courses</h2>
+    <ul>
+        {% for course in courses %}
+        <li>{{ course.name }} - {{ course.description }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Your Grades</h2>
+    <ul>
+        {% for score in scores %}
+        <li>{{ score.course.name }}: {{ score.score }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Communicate with Your Tutor</h2>
+    <form method="post" action="{% url 'communicate_with_tutor' tutor.id %}">
+        {% csrf_token %}
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea><br>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <h2>View Your Reports</h2>
+    <ul>
+        {% for child in children %}
+        <li><a href="{% url 'view_child_report' child.id %}">{{ child.full_name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Logout</h2>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
